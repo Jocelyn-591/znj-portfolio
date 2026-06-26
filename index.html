@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张凝佳 | 作品集</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FBFAF8;
+  --accent: #8B76B8;
+  --accent-soft: #B8A6D4;
+  --accent-dark: #5E4F80;
+  --accent-pink: #C597A8;
+  --accent-pink-soft: #E8D0DA;
+  --accent-blue: #9DB7CC;
+  --text: #1A1A1A;
+  --text-secondary: #5A5568;
+  --text-muted: #9E98AB;
+  --border: #E8E4F0;
+  --border-light: #F2EFF7;
+  --white: #FFFFFF;
+  --max-width: 1200px;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --transition: 0.4s cubic-bezier(0.22, 0.1, 0.1, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 48px; }
+
+.section { padding: 160px 0; position: relative; overflow: hidden; }
+
+/* =================== GLASS SYSTEM =================== */
+
+.glass {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.glass::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg,
+    rgba(139,118,184,0.22) 0%,
+    rgba(139,118,184,0.06) 18%,
+    rgba(139,118,184,0) 40%,
+    rgba(139,118,184,0) 60%,
+    rgba(139,118,184,0.06) 82%,
+    rgba(139,118,184,0.22) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass-strong {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.glass-strong::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1.2px;
+  background: linear-gradient(180deg,
+    rgba(139,118,184,0.3) 0%,
+    rgba(139,118,184,0.12) 20%,
+    rgba(139,118,184,0) 42%,
+    rgba(139,118,184,0) 58%,
+    rgba(139,118,184,0.12) 80%,
+    rgba(139,118,184,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass-pink {
+  background: rgba(255,248,251,0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.glass-pink::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg,
+    rgba(197,151,168,0.3) 0%,
+    rgba(197,151,168,0.08) 18%,
+    rgba(197,151,168,0) 40%,
+    rgba(197,151,168,0) 60%,
+    rgba(197,151,168,0.08) 82%,
+    rgba(197,151,168,0.3) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* =================== TYPOGRAPHY =================== */
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.section-label::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1.5px;
+  background: var(--accent-soft);
+}
+
+.section-title {
+  font-size: 56px;
+  font-weight: 480;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  letter-spacing: -0.025em;
+}
+[data-animate-chars] .char {
+  display: inline-block;
+  filter: blur(6px);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: filter 0.55s ease-out, opacity 0.55s ease-out, transform 0.55s ease-out;
+}
+[data-animate-chars] .char.visible {
+  filter: blur(0);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 520px;
+}
+
+/* =================== BG DECORATIONS =================== */
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.14;
+}
+
+/* =================== NAV =================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: var(--transition);
+}
+nav.scrolled {
+  padding: 12px 0;
+}
+nav .nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-glass {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 10px 28px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 2px 12px rgba(139,118,184,0.06);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.nav-glass::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 99px;
+  padding: 1px;
+  background: linear-gradient(180deg,
+    rgba(139,118,184,0.18) 0%, rgba(139,118,184,0.04) 30%,
+    rgba(139,118,184,0) 50%, rgba(139,118,184,0.04) 70%,
+    rgba(139,118,184,0.18) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+nav.scrolled .nav-glass {
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 4px 20px rgba(139,118,184,0.08);
+}
+
+.nav-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+  padding: 2px 0;
+  letter-spacing: 0.03em;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover::after { width: 100%; }
+
+/* =================== HERO =================== */
+
+.hero {
+  padding: 260px 0 200px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #F6F3FB 0%, #F9F7FC 30%, var(--bg) 55%);
+}
+
+.hero-bg-shapes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  filter: blur(80px);
+  animation: heroFloat 10s ease-in-out infinite;
+}
+.hero-shape:nth-child(1) { width: 500px; height: 500px; background: var(--accent-soft); top: 0%; left: -8%; animation-delay: 0s; }
+.hero-shape:nth-child(2) { width: 340px; height: 340px; background: var(--accent-pink-soft); top: 40%; right: -5%; animation-delay: -4s; }
+.hero-shape:nth-child(3) { width: 260px; height: 260px; background: #C8D9E8; bottom: 5%; left: 25%; animation-delay: -8s; }
+.hero-shape:nth-child(4) { width: 180px; height: 180px; background: var(--accent-soft); top: 60%; left: 55%; animation-delay: -2s; opacity: 0.08; }
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  33% { transform: translateY(-28px) scale(1.06); }
+  66% { transform: translateY(14px) scale(0.96); }
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero-greeting {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 32px;
+}
+
+.hero-name {
+  font-size: 96px;
+  font-weight: 480;
+  color: var(--text);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  margin-bottom: 28px;
+}
+
+.hero-accent-line {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-soft), var(--accent-pink-soft));
+  margin: 0 auto 32px;
+  border-radius: 1px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.hero-sub-line {
+  min-height: 30px;
+}
+
+/* =================== ABOUT =================== */
+
+.section-about {
+  background: linear-gradient(180deg, var(--bg) 0%, #F5F2F9 30%, #F8F5FB 60%, var(--bg) 100%);
+}
+.section-about .bg-blob:nth-child(1) {
+  top: 5%; right: -10%; width: 500px; height: 500px;
+  background: var(--accent-soft);
+}
+.section-about .bg-blob:nth-child(2) {
+  bottom: 10%; left: -8%; width: 380px; height: 380px;
+  background: var(--accent-pink-soft);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 100px;
+  margin-top: 72px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.about-bio {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 2.1;
+  position: relative;
+}
+.about-bio p { margin-bottom: 28px; }
+.about-bio p:last-child { margin-bottom: 0; }
+
+.about-highlight {
+  color: var(--accent-dark);
+  font-weight: 550;
+  position: relative;
+}
+.about-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-soft);
+  opacity: 0.25;
+}
+
+.about-info-card {
+  border-radius: var(--radius);
+  padding: 48px 44px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 0.5px solid rgba(139,118,184,0.08);
+}
+.info-row:last-child { border-bottom: none; }
+.info-label { font-size: 13px; color: var(--text-muted); }
+.info-value { font-size: 14px; color: var(--text); font-weight: 550; }
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-size: 12px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: rgba(139,118,184,0.06);
+  color: var(--accent-dark);
+  font-weight: 550;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+}
+.skill-tag:hover {
+  background: var(--accent-soft);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* === About Photo & Skills === */
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.about-photo {
+  width: 130px;
+  height: 168px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 2px solid rgba(139,118,184,0.12);
+  box-shadow: 0 8px 32px rgba(139,118,184,0.10);
+}
+
+/* Left column: bio text only */
+.about-bio-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right column: single info card */
+.about-right-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Info card: all content inside one card */
+.about-info-card .skill-group {
+  margin-top: 16px;
+}
+.about-info-card .skill-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: block;
+}
+.about-info-card .skill-group-title-pink {
+  color: #d46b9a;
+}
+.about-info-card .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.skill-tags-pink .skill-tag-pink {
+  background: linear-gradient(135deg, rgba(232,114,160,0.08), rgba(255,148,166,0.06));
+  color: #c45a87;
+  border: 1px solid rgba(232,114,160,0.12);
+}
+.skill-tags-pink .skill-tag-pink:hover {
+  background: linear-gradient(135deg, #e872a0, #ff94a6);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* =================== WORKS =================== */
+
+.section-works {
+  background: var(--bg);
+}
+.section-works .bg-blob:nth-child(1) {
+  top: 20%; right: -6%; width: 420px; height: 420px;
+  background: var(--accent-soft);
+  opacity: 0.08;
+}
+.section-works .bg-blob:nth-child(2) {
+  bottom: 15%; left: -4%; width: 300px; height: 300px;
+  background: var(--accent-pink-soft);
+  opacity: 0.1;
+}
+
+.works-header { margin-bottom: 72px; position: relative; z-index: 1; }
+.works-header .section-subtitle { font-size: 15px; }
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 52px;
+  position: relative;
+  z-index: 1;
+}
+
+.tab-btn {
+  font-size: 13px;
+  padding: 10px 26px;
+  border-radius: 99px;
+  border: none;
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(139,118,184,0.04);
+}
+.tab-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 99px;
+  padding: 1px;
+  background: linear-gradient(180deg,
+    rgba(139,118,184,0.15) 0%, rgba(139,118,184,0.03) 40%,
+    rgba(139,118,184,0) 60%, rgba(139,118,184,0.03) 80%,
+    rgba(139,118,184,0.15) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.tab-btn:hover {
+  color: var(--accent);
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 2px 8px rgba(139,118,184,0.08);
+}
+.tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(139,118,184,0.3);
+}
+.tab-btn.active::before { display: none; }
+.tab-btn.ai-tab { color: var(--accent-pink); }
+.tab-btn.ai-tab::before {
+  background: linear-gradient(180deg,
+    rgba(197,151,168,0.2) 0%, rgba(197,151,168,0.04) 40%,
+    rgba(197,151,168,0) 60%, rgba(197,151,168,0.04) 80%,
+    rgba(197,151,168,0.2) 100%);
+}
+.tab-btn.ai-tab.active {
+  background: var(--accent-pink);
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(197,151,168,0.35);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.work-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.45s cubic-bezier(0.22, 0.1, 0.1, 1);
+}
+.work-card.ai-card { background: rgba(255,245,249,0.55); }
+.work-card.ai-card::before {
+  background: linear-gradient(180deg,
+    rgba(197,151,168,0.3) 0%, rgba(197,151,168,0.06) 20%,
+    rgba(197,151,168,0) 42%, rgba(197,151,168,0) 58%,
+    rgba(197,151,168,0.06) 80%, rgba(197,151,168,0.3) 100%);
+}
+
+.work-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(139,118,184,0.1);
+}
+.work-card.ai-card:hover {
+  box-shadow: 0 20px 50px rgba(197,151,168,0.15);
+}
+
+.work-card-image {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.work-card-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 50%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.015));
+  pointer-events: none;
+}
+
+.work-card-tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--accent-dark);
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.work-card.ai-card .work-card-tag { color: #9B6576; }
+
+.work-card-body {
+  padding: 30px 34px 36px;
+  position: relative;
+}
+
+.work-card-number {
+  position: absolute;
+  top: 30px;
+  right: 34px;
+  font-size: 48px;
+  font-weight: 500;
+  color: rgba(139,118,184,0.1);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  transition: var(--transition);
+}
+.work-card:hover .work-card-number { color: rgba(139,118,184,0.18); }
+.work-card.ai-card .work-card-number { color: rgba(197,151,168,0.12); }
+.work-card.ai-card:hover .work-card-number { color: rgba(197,151,168,0.22); }
+
+.work-card-title {
+  font-size: 19px;
+  font-weight: 550;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  padding-right: 55px;
+}
+.work-card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  padding-right: 55px;
+}
+
+.work-card-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #9B6576;
+  font-weight: 600;
+  margin-top: 16px;
+  padding: 6px 14px;
+  border-radius: 99px;
+  background: rgba(197,151,168,0.08);
+}
+.ai-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-pink);
+  animation: aiPulse 2s ease-in-out infinite;
+}
+@keyframes aiPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* =================== MODAL =================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(18,15,24,0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal {
+  max-width: 820px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(16px);
+  transition: transform 0.4s cubic-bezier(0.22, 0.1, 0.1, 1);
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.88) !important;
+}
+.modal::before { display: none; }
+.modal-overlay.active .modal { transform: translateY(0); }
+
+.modal-image {
+  width: 100%;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  position: relative;
+  border-radius: 0;
+  background: #F5F2F9 !important;
+}
+.modal-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 50%;
+  background: linear-gradient(transparent, rgba(0,0,0,0.02));
+  pointer-events: none;
+}
+
+/* Gallery in modal */
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 20px 56px 0;
+}
+.modal-gallery img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.modal-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Lightbox for gallery images */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.modal-content { padding: 52px 56px 56px; }
+
+.modal-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.modal-category::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--accent-soft);
+}
+
+.modal-title {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 36px;
+  letter-spacing: -0.02em;
+}
+
+.modal-section { margin-bottom: 36px; }
+
+.modal-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.modal-section-title::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+
+.modal-section p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.modal-ai-section {
+  background: rgba(197,151,168,0.05);
+  border-radius: var(--radius-sm);
+  padding: 26px 30px;
+  margin-top: 8px;
+  border-left: 3px solid var(--accent-pink-soft);
+}
+.modal-ai-section .modal-section-title { color: #9B6576; }
+.modal-ai-section .modal-section-title::before { background: var(--accent-pink); }
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.modal-close::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  padding: 1px;
+  background: linear-gradient(180deg,
+    rgba(139,118,184,0.2) 0%, rgba(139,118,184,0.05) 40%,
+    rgba(139,118,184,0) 60%, rgba(139,118,184,0.05) 80%,
+    rgba(139,118,184,0.2) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.modal-close:hover {
+  background: rgba(255,255,255,0.95);
+  color: var(--accent);
+  transform: rotate(90deg);
+}
+
+/* =================== CONTACT =================== */
+
+.section-contact {
+  background: linear-gradient(180deg, var(--bg) 0%, #F6F3F9 50%, #F9F6FB 100%);
+}
+.section-contact .bg-blob:nth-child(1) {
+  bottom: 0%; right: -8%; width: 420px; height: 420px;
+  background: var(--accent-soft);
+  opacity: 0.1;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin-top: 72px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-text { font-size: 15px; color: var(--text-secondary); line-height: 2.1; }
+
+.contact-links { display: flex; flex-direction: column; gap: 14px; margin-top: 40px; }
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text);
+  text-decoration: none;
+  padding: 18px 24px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  position: relative;
+}
+.contact-link:hover {
+  background: rgba(139,118,184,0.06);
+  transform: translateX(4px);
+}
+.contact-link span { position: relative; z-index: 1; }
+.contact-icon { font-size: 18px; width: 28px; text-align: center; flex-shrink: 0; }
+
+.resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 36px;
+  padding: 18px 40px;
+  border: none;
+  border-radius: 99px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 550;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  background: var(--accent);
+  font-family: inherit;
+  letter-spacing: 0.03em;
+  box-shadow: 0 6px 24px rgba(139,118,184,0.3);
+}
+.resume-download:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 10px 32px rgba(139,118,184,0.4);
+  transform: translateY(-2px);
+}
+
+.contact-card {
+  border-radius: var(--radius);
+  padding: 48px 44px;
+}
+
+/* Simple contact info */
+.contact-simple {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.contact-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.contact-value {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+/* =================== FOOTER =================== */
+
+footer {
+  padding: 56px 0 40px;
+  text-align: center;
+  position: relative;
+}
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1.5px;
+  background: var(--border-light);
+}
+footer p { font-size: 13px; color: var(--text-muted); letter-spacing: 0.05em; }
+
+/* =================== SCROLL REVEAL =================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.22, 0.1, 0.1, 1), transform 0.8s cubic-bezier(0.22, 0.1, 0.1, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =================== RESPONSIVE =================== */
+
+@media (max-width: 1000px) {
+  .container, nav .nav-inner { padding: 0 32px; }
+  .section { padding: 110px 0; }
+  .hero { padding: 200px 0 130px; }
+  .hero-name { font-size: 64px; }
+  .hero-subtitle { font-size: 17px; }
+  .section-title { font-size: 40px; }
+  .about-grid { grid-template-columns: 1fr; gap: 64px; }
+  .contact-simple { gap: 36px; }
+  .contact-value { font-size: 18px; }
+  .works-grid { grid-template-columns: 1fr; gap: 22px; }
+  .work-card-image { height: 210px; }
+  .modal-content { padding: 40px 36px; }
+  .modal-gallery { padding: 16px 36px 0; grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 600px) {
+  .container, nav .nav-inner { padding: 0 20px; }
+  .section { padding: 88px 0; }
+  .hero { padding: 170px 0 100px; }
+  .hero-name { font-size: 44px; }
+  .hero-subtitle { font-size: 16px; }
+  .section-title { font-size: 32px; }
+  .nav-links { gap: 24px; }
+  .nav-glass { gap: 24px; padding: 8px 20px; }
+  .nav-links a { font-size: 12px; }
+  .tabs { gap: 6px; }
+  .tab-btn { padding: 8px 18px; font-size: 12px; }
+  .work-card-image { height: 170px; }
+  .work-card-body { padding: 22px 24px 28px; }
+  .work-card-number { font-size: 40px; top: 22px; right: 24px; }
+  .modal-content { padding: 32px 26px 36px; }
+  .modal-gallery { padding: 12px 26px 0; grid-template-columns: 1fr; }
+  .modal-title { font-size: 26px; }
+  .about-info-card, .contact-card { padding: 34px 28px; }
+}
+
+/* Hide nav name on very small screens to keep links visible */
+@media (max-width: 400px) {
+  .nav-glass { padding: 8px 16px; gap: 16px; }
+  .nav-name { font-size: 13px; }
+  .nav-links { gap: 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-glass">
+      <span class="nav-name">张凝佳</span>
+      <ul class="nav-links">
+        <li><a href="#about">关于</a></li>
+        <li><a href="#works">作品</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-shapes">
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+    <div class="hero-shape"></div>
+  </div>
+  <div class="container hero-content">
+    <p class="hero-greeting" data-animate-chars data-delay="200">HELLO, 我是</p>
+    <h1 class="hero-name" data-animate-chars data-delay="700">张凝佳</h1>
+    <div class="hero-accent-line"></div>
+    <div class="hero-subtitle">
+      <p class="hero-sub-line" data-animate-chars data-delay="1100">广告学在读</p>
+      <p class="hero-sub-line" data-animate-chars data-delay="1400">关注创意、文案与策略执行</p>
+      <p class="hero-sub-line" data-animate-chars data-delay="1700">用 AI 辅助想法落地，而不是代替思考</p>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section section-about" id="about">
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section-label">ABOUT</span>
+    <h2 class="section-title" data-animate-chars>关于我</h2>
+    <div class="about-grid">
+      <!-- 左栏：个人简介文字 -->
+      <div class="about-bio-col">
+        <div class="about-bio reveal">
+          <p>上海师范大学广告学专业 2024 级在读。相比单纯讨论传播概念，我更关注创意、文案与策略执行之间的关系：一个想法如何从消费者洞察中长出来，又如何被写成能落地的传播方案。</p>
+          <p>在课程学习和项目实践中，我逐渐形成了从调研分析、消费者洞察、策略推导，到创意概念、文案输出、视觉执行和提案表达的完整工作习惯。比较擅长把模糊的消费情绪转化为具体的创意切口，再进一步整理成可执行的策划内容。</p>
+          <p>我从 2023 年开始关注 ChatGPT，2024 年高中毕业的暑假开始进一步接触 AI。在 AI 编程刚兴起时，我便使用 Cursor 尝试制作一些实用型小程序，例如完全适配个人使用习惯的 To-do List 程序、周期记录程序等。进入大学后，我也开始把这些 AI 工具融入专业学习和项目实践中。</p>
+          <p>例如把策划案里的互动机制做成可展示模型、制作接入 API 的消费者画像与策略模拟反馈程序，用于辅助消费者分析和策略验证。同时，我也熟悉 AI 生图、AI 生视频等创意工具，并将其用于视觉参考、分镜生成和方案呈现。</p>
+          <p>对我来说，AI 更像是提高效率和拓展表达方式的助手，而不是替代思考的答案。真正决定作品质量的最终判断，仍然来自人的洞察、判断、审美和执行。</p>
+        </div>
+      </div>
+
+      <!-- 右栏：个人信息卡（证件照 + 基本信息 + 专业能力 + 软件/AI技能） -->
+      <div class="about-right-col reveal reveal-delay-2">
+        <div class="about-info-card glass-strong">
+          <!-- 证件照 -->
+          <div class="about-photo-wrap">
+            <img src="2寸证件照.png" alt="张凝佳" class="about-photo">
+          </div>
+
+          <!-- 基本信息 -->
+          <div class="info-row">
+            <span class="info-label">姓名</span><span class="info-value">张凝佳</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">学校</span><span class="info-value">上海师范大学</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">专业</span><span class="info-value">广告学</span>
+          </div>
+          <div class="info-row" style="border-bottom:none;">
+            <span class="info-label">年级</span><span class="info-value">2024 级</span>
+          </div>
+
+          <!-- 专业能力 -->
+          <div class="skill-group">
+            <span class="skill-group-title">专业能力</span>
+            <div class="skill-tags">
+              <span class="skill-tag">创意文案</span>
+              <span class="skill-tag">消费者洞察</span>
+              <span class="skill-tag">策略执行</span>
+              <span class="skill-tag">品牌策划</span>
+              <span class="skill-tag">视觉创意</span>
+              <span class="skill-tag">视频创意</span>
+              <span class="skill-tag">H5 互动</span>
+            </div>
+          </div>
+          <!-- 软件技能 -->
+          <div class="skill-group">
+            <span class="skill-group-title">软件技能</span>
+            <div class="skill-tags">
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Illustrator</span>
+              <span class="skill-tag">Premiere Pro</span>
+              <span class="skill-tag">剪映</span>
+              <span class="skill-tag">Canva</span>
+            </div>
+          </div>
+          <!-- AI 技能 -->
+          <div class="skill-group">
+            <span class="skill-group-title skill-group-title-pink">AI 技能</span>
+            <div class="skill-tags skill-tags-pink">
+              <span class="skill-tag skill-tag-pink">AI 辅助创意</span>
+              <span class="skill-tag skill-tag-pink">AI 生图</span>
+              <span class="skill-tag skill-tag-pink">AI 生视频</span>
+              <span class="skill-tag skill-tag-pink">Vibe Coding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Works -->
+<section class="section section-works" id="works">
+  <div class="bg-blob"></div>
+  <div class="bg-blob"></div>
+  <div class="container">
+    <span class="section-label">WORKS</span>
+    <div class="works-header reveal">
+      <h2 class="section-title" data-animate-chars>作品集</h2>
+      <p class="section-subtitle">覆盖策划、视频、平面、H5 互动及 AI 创作等多个领域</p>
+    </div>
+    <div class="tabs reveal reveal-delay-1">
+      <button class="tab-btn active" data-category="all">全部</button>
+      <button class="tab-btn" data-category="planning">策划案</button>
+      <button class="tab-btn" data-category="video">视频</button>
+      <button class="tab-btn" data-category="graphic">平面</button>
+      <button class="tab-btn ai-tab" data-category="ai">AI作品</button>
+    </div>
+    <div class="works-grid reveal reveal-delay-2" id="worksGrid"></div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section section-contact" id="contact">
+  <div class="bg-blob"></div>
+  <div class="container" style="text-align:center;">
+    <span class="section-label">CONTACT</span>
+    <h2 class="section-title" data-animate-chars>联系方式</h2>
+    <div class="contact-simple reveal">
+      <div class="contact-item">
+        <span class="contact-label">WeChat</span>
+        <span class="contact-value">z7942621</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">TEL</span>
+        <span class="contact-value">183 2137 0195</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 张凝佳</p>
+  </div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal glass-strong" id="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-image" id="modalImage"></div>
+    <div class="modal-gallery" id="modalGallery" style="display:none;"></div>
+    <div class="modal-content">
+      <div class="modal-category" id="modalCategory"></div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-section">
+        <div class="modal-section-title">项目概述</div>
+        <p id="modalOverview"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">我的角色</div>
+        <p id="modalRole"></p>
+      </div>
+      <div class="modal-section">
+        <div class="modal-section-title">项目亮点</div>
+        <p id="modalHighlights"></p>
+      </div>
+      <div class="modal-ai-section" id="modalAiSection" style="display:none;">
+        <div class="modal-section-title">AI 应用说明</div>
+        <p id="modalAiDesc"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="" />
+</div>
+
+<script>
+const works = [
+{ id:1, category:'planning', title:'第16届大广赛泡泡玛特策划案', desc:'「发呆是正经事儿」— Nyota IP 整合营销', image:'popmart_campaign_new.png', gallery:['portfolio-previews/popmart_01.png','portfolio-previews/popmart_02.png','portfolio-previews/popmart_03.png','portfolio-previews/popmart_04.png','portfolio-previews/popmart_05.png','portfolio-previews/popmart_06.png'], overview:'参加第16届全国大学生广告艺术大赛，围绕泡泡玛特旗下 Nyota IP 命题，以「发呆是正经事儿」为核心创作整合营销策划方案，获得上海赛区优秀奖。', role:'独立完成前期竞品分析、消费者调研、策略框架搭建与创意策划全流程。', highlights:'围绕 Nyota「自在放空，慢游生活」的疗愈理念，以「发呆是正经事儿」为核心，通过线上 #我和 Nyota 的放空日记# UGC 征集、《Nyota 日记》系列短片，以及线下茶话会、云朵发呆区、玩家共创等多元活动，深度传递慢生活与情绪疗愈价值。同时将 Nyota 与小猫的经典 IP 设定结合公益，推出「塔塔与城市猫咪·云端猫岛计划」——用户通过分享内容、带话题、上传照片积累「云朵币」即可助力流浪猫公益捐赠，配合线上领养直播与线下门店领养角，让 IP 形象、疗愈理念与社会责任感自然融合，大幅强化用户情感共鸣与品牌好感度。', ai:false },
+{ id:2, category:'planning', title:'全国大学生HPV公益创意大赛', desc:'「我被困在了得知自己感染HPV的那一天」', image:'hpv_campaign_new.png', gallery:['portfolio-previews/hpv_new_01.png','portfolio-previews/hpv_new_02.png','portfolio-previews/hpv_new_03.png','portfolio-previews/hpv_new_04.png','portfolio-previews/hpv_new_05.png','portfolio-previews/hpv_new_06.png','portfolio-previews/hpv_new_07.png','portfolio-previews/hpv_new_08.png','portfolio-previews/hpv_new_09.png','portfolio-previews/hpv_new_10.png','portfolio-previews/hpv_new_11.png','portfolio-previews/hpv_new_12.png','portfolio-previews/hpv_new_13.png','portfolio-previews/hpv_new_14.png','portfolio-previews/hpv_new_15.png','portfolio-previews/hpv_new_16.png','portfolio-previews/hpv_new_17.png','portfolio-previews/hpv_new_18.png','portfolio-previews/hpv_new_19.png'], overview:'参加全国大学生HPV公益创意大赛，创作策划案《我被困在了得知自己感染HPV的那一天》，获得全国优秀奖。', role:'独立完成从洞察到创意的全流程策划，包括消费者调研、数据图表分析、三阶段传播策略设计、互动装置与KOL合作方案。', highlights:'以"七日轮回"为叙事主线，构建悬疑→破局→解脱三阶段沉浸式体验：第一阶段《七日》微电影+蜜雪冰城HPV防御值挑战H5+悬念海报制造话题；第二阶段线下电话亭装置艺术（倾听HPV患者故事）+4位UP主多角度科普（两性责任/男性感染/家庭保护/疫苗）+HealthColorRun；第三阶段发布《校园HPV预防完全攻略》+城市公共交通科普画廊专列。', ai:false },
+{ id:5, category:'planning', title:'华釜青年奖策划案', desc:'国际青年营销赛事参赛作品', image:'cover_gelasige.jpg', overview:'参加华釜青年奖营销策划竞赛，围绕比赛命题完成从策略洞察到创意呈现的完整方案，最终获得优秀成绩。', role:'团队核心成员，负责消费者洞察提炼、策略框架搭建、创意概念发展及完成ai视频生成、测试小程序制作。', highlights:'作品从"油"这个词的语义反差切入：石油、食用油、鞋油、奶油等都代表有用价值，但当油落到人的头发上，就会变成尴尬和负担。"去掉没用的油"把产品功能转化为一句有态度、有冲突感的传播口号。TVC用"有用的油"层层铺垫，最后反转到"多余头油没用"，形成强对比；延伸海报继续放大TVC中的人物与金句；H5"测测你的出油率"则把广告观看转化为用户互动。再通过"@一个比你更油的人""宿舍/职场含油量测试"等机制，引导用户从自测走向互相点名，进一步形成UGC二次传播。', gallery:['portfolio-previews/huafu_01.jpg','portfolio-previews/huafu_02.jpg','portfolio-previews/huafu_03.jpg','portfolio-previews/huafu_04.jpg','portfolio-previews/huafu_05.jpg','portfolio-previews/huafu_06.jpg','portfolio-previews/huafu_07.jpg','portfolio-previews/huafu_08.jpg','portfolio-previews/huafu_09.jpg','portfolio-previews/huafu_10.jpg','portfolio-previews/huafu_11.jpg','portfolio-previews/huafu_12.jpg','portfolio-previews/huafu_13.jpg','portfolio-previews/huafu_14.jpg','portfolio-previews/huafu_15.jpg','portfolio-previews/huafu_16.jpg','portfolio-previews/huafu_17.jpg','portfolio-previews/huafu_18.jpg'], ai:true, aiDesc:'（1）使用 AI 生成工具制作 TVC 概念视频，辅助方案视觉呈现；（2）开发测试小程序供评委体验方案核心互动机制。' },
+{ id:6, category:'planning', title:'第17届大广赛联通文创策划案', desc:'「万缕千丝中国结，万家灯火中国年」', image:'cover_china_unicom.jpg', gallery:['portfolio-previews/unicom_new_01.png','portfolio-previews/unicom_new_02.png','portfolio-previews/unicom_new_03.png','portfolio-previews/unicom_new_04.png','portfolio-previews/unicom_new_05.png','portfolio-previews/unicom_new_06.png','portfolio-previews/unicom_new_07.png','portfolio-previews/unicom_new_08.png','portfolio-previews/unicom_new_09.png','portfolio-previews/unicom_new_10.png','portfolio-previews/unicom_new_11.png','portfolio-previews/unicom_new_12.png','portfolio-previews/unicom_new_13.png','portfolio-previews/unicom_new_14.png','portfolio-previews/unicom_new_15.png','portfolio-previews/unicom_new_16.png','portfolio-previews/unicom_new_17.png','portfolio-previews/unicom_new_18.png'], overview:'参加第17届全国大学生广告艺术大赛联通文创命题，以「万缕千丝中国结，万家灯火中国年」为核心创意，创作联通文创整合营销策划方案。', role:'负责核心洞察提炼、创意概念发展与落地活动策划。', highlights:'将中国联通的中国结符号转化为春节期间人与人之间的连接仪式。方案联合中国邮政与12306，以绿色邮路、蓝色铁轨、红色信号三条线索，串联起"写信寄思念、坐车奔团圆、线上实时联通"三种春节连接方式。从"一票一信"公益家书，到"一线一乡"春运共创，再到"一牌一城"地域通讯互动，用户的每一次参与都在为中国结添上一根线。最终，红绿蓝三色交织成光，点亮万家灯火，呈现一个关于归途、牵挂与团圆的中国年。', ai:false },
+{ id:7, category:'planning', title:'第17届大广赛三福命题策划案', desc:'「提前入镜，搭出我的下一幕」', image:'cover_sanfu.png', gallery:['portfolio-previews/sanfu_planning_01.png','portfolio-previews/sanfu_planning_02.png','portfolio-previews/sanfu_planning_03.png','portfolio-previews/sanfu_planning_04.png','portfolio-previews/sanfu_planning_05.png','portfolio-previews/sanfu_planning_06.png','portfolio-previews/sanfu_planning_07.png','portfolio-previews/sanfu_planning_08.png','portfolio-previews/sanfu_planning_09.png','portfolio-previews/sanfu_planning_10.png','portfolio-previews/sanfu_planning_11.png','portfolio-previews/sanfu_planning_12.png','portfolio-previews/sanfu_planning_13.png','portfolio-previews/sanfu_planning_14.png'], overview:'参加第17届全国大学生广告艺术大赛三福命题，以「提前入镜，搭出我的下一幕」为核心创作整合营销策划方案。', role:'负责消费者洞察提炼与落地活动策划。', highlights:'抓住18-22岁毕业生从校园走向旅行、入学、实习、入职等新阶段前的期待心理。三福联合豆包AI，将"穿搭"从单纯购买升级为一次新身份预演：线上由网友为豆包搭配并投票，制造话题声量；线下通过AR智能试衣镜与毕业快闪装置，让用户在海边、音乐节、职场等虚拟场景中提前看见未来的自己。活动以AI互动、场景穿搭、社交分享和到店转化形成闭环，帮助三福从"学生私服"进一步升级为年轻人进入下一幕生活前的一站式搭配基地。', ai:false },
+{ id:4, category:'planning', title:'消费者洞察期末作业 — 打印店策划', desc:'「天寒地冻不想走 紫藤打印送到手」', image:'printshop_campaign_new.png', gallery:['portfolio-previews/printshop_new_01.png','portfolio-previews/printshop_new_02.png','portfolio-previews/printshop_new_03.png','portfolio-previews/printshop_new_04.png','portfolio-previews/printshop_new_05.png','portfolio-previews/printshop_new_06.png','portfolio-previews/printshop_new_07.png','portfolio-previews/printshop_new_08.png','portfolio-previews/printshop_new_09.png','portfolio-previews/printshop_new_10.png','portfolio-previews/printshop_new_11.png','portfolio-previews/printshop_new_12.png','portfolio-previews/printshop_new_13.png','portfolio-previews/printshop_new_14.png','portfolio-previews/printshop_new_15.png','portfolio-previews/printshop_new_16.png','portfolio-previews/printshop_new_17.png','portfolio-previews/printshop_new_18.png'], overview:'消费者洞察专业课期末作业，聚焦校园打印服务痛点，提出「线上下单 + 送货上门」的创新打印店运营模式，获得专业最高分。', role:'主导用户调研与痛点分析，负责产品功能设计、商业模式搭建，使用 AI 编程实现小程序原型。', highlights:'从真实校园场景出发：观察到冬季同学们在打印店排长队的痛点，提出「送货上门」差异化方案；利用 AI 编程工具开发 HTML 小程序原型，实现打印文件上传 + 资料册一键下单功能。', ai:true, aiDesc:'借助 AI 编程工具独立开发了 HTML 小程序原型，实现文件上传、资料册选择、一键下单等核心功能。' },
+{ id:8, category:'video', title:'学院奖 2025 秋季赛 — DDG 卸妆膏', desc:'「美，是什么」— 品牌创意视频广告', image:'ddg_video_cover.png', gallery:['portfolio-pages/page_07.png','portfolio-images/page7_img29.jpg','portfolio-images/page7_img30.jpg','portfolio-images/page7_img31.jpg','portfolio-images/page7_img32.jpg','portfolio-images/page7_img33.jpg','portfolio-images/page7_img34.jpg','portfolio-images/page7_img35.jpg','portfolio-images/page7_img36.jpg','portfolio-images/page7_img37.jpg','portfolio-images/page7_img38.jpg'], overview:'参加中国大学生广告艺术节学院奖 2025 秋季征集大赛，为 DDG 卸妆膏创作品牌视频广告《美，是什么》，获得全国铜奖。', role:'负责创意概念、分镜脚本撰写、拍摄指导与后期剪辑全流程。', highlights:'当"白幼瘦"成为社交平台的流量密码，当美颜滤镜与遮瑕成为日常，我们也逐渐陷入被"标准美"绑架的容貌焦虑。本支广告片以"卸妆=卸下审美枷锁"为核心隐喻，聚焦"卸妆瞬间"的情感释放：卸下的不是美丽，而是对"不够完美"的焦虑；直面的不是缺陷，而是真实的自己。ddg卸妆膏不仅是一款"一抹速卸"的高效产品，更希望成为"拥抱本真"的情感符号。它卸去彩妆，也卸下被定义的压力，让消费者感受到：真正的美，从来没有统一答案。因为本真，无需修饰。', ai:false , gallery:['portfolio-previews/ddg_1.png','portfolio-previews/ddg_3.png','portfolio-previews/ddg_4.png','portfolio-previews/ddg_5.png','portfolio-previews/ddg_poster.jpg','portfolio-previews/ddg_7.png','portfolio-previews/ddg_8.png','portfolio-previews/ddg_9.png','portfolio-previews/ddg_note1.png','portfolio-previews/ddg_note2.png','portfolio-previews/ddg_19.png','portfolio-previews/ddg_20.png','portfolio-previews/ddg_21.png','portfolio-previews/ddg_10.png','portfolio-previews/ddg_11.png','portfolio-previews/ddg_12.png','portfolio-previews/ddg_book.jpg','portfolio-previews/ddg_14.png','portfolio-previews/ddg_15.png']},
+{ id:9, category:'video', title:'第17届大广赛云南白药命题 — 品牌视频', desc:'「钻白闪耀」— 相声捧逗式创意短片', image:'yunnanbaiyao_video.png', gallery:['portfolio-previews/ynbaiyao_vid_01.png','portfolio-previews/ynbaiyao_vid_02.png','portfolio-previews/ynbaiyao_vid_03.png','portfolio-previews/ynbaiyao_vid_04.png','portfolio-previews/ynbaiyao_vid_05.png','portfolio-previews/ynbaiyao_vid_06.png','portfolio-previews/ynbaiyao_vid_07.png','portfolio-previews/ynbaiyao_vid_08.png','portfolio-previews/ynbaiyao_vid_09.png','portfolio-previews/ynbaiyao_vid_10.png','portfolio-previews/ynbaiyao_vid_11.png','portfolio-previews/ynbaiyao_vid_12.png','portfolio-previews/ynbaiyao_vid_13.png','portfolio-previews/ynbaiyao_vid_14.png'], overview:'参加第17届全国大学生广告艺术大赛云南白药命题，创作品牌创意短视频，以幽默反差的叙事手法传递产品核心卖点。', role:'负责创意策划、脚本撰写与视频制作。', highlights:'借用传统相声的捧逗形式，以幽默的语言节奏打造极具"活人味"的短视频。前半段运用"黑芝麻、黑土地、石油、黑檀木"层层递进建立思维定势，中段以"牙黑了"进行戏剧化神反转，直击口腔痛点。短片摒弃传统硬广套路，纯靠文本张力和情绪反差制造爆点。结尾双人合喊口号，将美白刚需转化为洗脑记忆，高效传递云南白药"钻白闪耀"的核心心智。', ai:false },
+{ id:11, category:'graphic', title:'云南白药平面广告', desc:'品牌平面广告创意设计', image:'yunnanbaiyao_graphic.jpg', overview:'为云南白药品牌创作平面广告作品，通过视觉语言传达产品利益点与品牌调性。', role:'独立完成创意构思、视觉设计与版式编排。', highlights:'本组海报围绕云南白药闪耀钻白牙膏展开创意表达，以"生活中必须亮白的事物"作为视觉类比：灯必须亮，才能照亮空间；镜必须明，才能映出清晰；窗必须透，才能看见蓝天。将这些日常中对"亮白、通透、干净"的自然认知，转译到牙齿美白诉求上——牙齿也该像灯、镜、窗一样，保持明亮洁白。通过"本该白却不能黑"的反差逻辑，强化闪耀钻白牙膏带来的洁白感与光泽感，让牙齿美白从产品功效变成一眼能懂的生活常识。', ai:false , gallery:['portfolio-previews/ynbaiyao_poster_01.jpg','portfolio-previews/ynbaiyao_poster_02.jpg','portfolio-previews/ynbaiyao_poster_03.jpg']},
+{ id:12, category:'graphic', title:'三福 IP 周边设计', desc:'品牌 IP 形象周边产品设计', image:'sanfu_ip_cover.jpg', overview:'为三福品牌设计 IP 形象及其系列周边产品，包括形象设定、产品应用与延展设计。', role:'负责 IP 形象设计、周边产品视觉设计及物料延展。', highlights:'本系列围绕三福"潮趣好搭子"的品牌定位，以"搭"为核心创意出发点，将"搭积木"的动作与"生活新「搭」案"的主题相呼应。小福龙被设计成积木质感形象，象征年轻人可以像搭积木一样，用不同单品、不同场景、不同心情，搭出属于自己的潮趣生活。九款小福龙分别对应野餐、运动、赏花、旅行、新年、美妆、种植等日常场景，并与三福logo的九种颜色呼应，把三福丰富、好逛、好搭配的品牌特质转化为可收藏、可分享、可陪伴的IP周边。通过"小福龙，搭起来"，让小福龙成为年轻人生活里的潮趣好搭子。', ai:false , gallery:['portfolio-previews/sanfu_ip_01.jpg','portfolio-previews/sanfu_ip_02.jpg','portfolio-previews/sanfu_ip_03.jpg']},
+{ id:13, category:'ai', title:'第17届大广赛三福命题 — 三福H5互动页面', desc:'「提前入镜，搭出我的下一幕」— H5交互体验设计', image:'sanfu_h5_cover.jpg', overview:'为三福品牌设计和开发互动型 H5 营销页面，通过趣味交互提升用户参与度和品牌好感度。', role:'负责H5整体交互架构设计与视觉风格定义，独立完成前端代码实现，将品牌互动创意转化为游戏化场景体验。', highlights:'围绕三福命题核心词"搭"，将穿搭场景化为四个生活局（早八续命局、开学破冰局、出游出片局、宿舍快乐局），用户选择场景后进入装备库选购搭配，系统生成专属"搭感值"与搭配海报。H5以游戏化交互降低决策门槛，将购物转化为一场关于自我风格的轻量探索，引导用户在社交平台分享"神搭"结果，完成从体验到传播的闭环。', ai:true, aiDesc:'完全借助 AI 编程工具进行前端开发，独立完成交互设计、视觉实现与全流程代码编写。' , gallery:['portfolio-previews/sanfu_h5_01.jpg','portfolio-previews/sanfu_h5_02.jpg','portfolio-previews/sanfu_h5_03.jpg','portfolio-previews/sanfu_h5_04.jpg','portfolio-previews/sanfu_h5_05.jpg','portfolio-previews/sanfu_h5_06.jpg']},
+{ id:15, category:'ai', title:'消费者画像分析与策略验证', desc:'接入 DeepSeek API 的消费者洞察系统', image:'consumer_insights_cover.png', gallery:['portfolio-previews/consumer_01.jpg','portfolio-previews/consumer_02.jpg','portfolio-previews/consumer_03.jpg','portfolio-previews/consumer_04.jpg','portfolio-previews/consumer_05.jpg','portfolio-previews/consumer_06.jpg'], overview:'利用大语言模型能力，构建消费者画像生成与策略反馈系统。输入目标人群特征后，系统生成详细消费者画像，并可测试不同传播策略在各类型消费者中的反馈效果。', role:'独立完成系统设计、API 接入、前端界面开发及测试调优。', highlights:'自主接入 DeepSeek API 实现智能分析功能；将 AI 能力融入营销策略工作流，从「凭经验」到「数据+AI 辅助决策」；作品体现了 AI 与广告营销专业的深度融合。', ai:true, aiDesc:'核心技术亮点：成功接入 DeepSeek 大语言模型 API，实现了从消费者画像自动生成到策略反馈循环的完整智能分析链路。这是 AI 技术与专业领域知识深度结合的实践案例。' },
+    {
+      id: 100,
+  category: 'ai',
+  title: '研印校园 — 智能打印服务平台',
+  desc: '校园打印资料一站式平台，详见策划案板块「消费者洞察期末作业 — 打印店策划」',
+  image: 'cover_yanyin.png',
+  gallery: [
+    'portfolio-previews/yanyin_01.png',
+    'portfolio-previews/yanyin_02.png',
+    'portfolio-previews/yanyin_03.png',
+    'portfolio-previews/yanyin_04.png',
+    'portfolio-previews/yanyin_05.png'
+  ],
+  overview: '基于校园打印痛点的智能服务平台，整合资料搜索、课程匹配、智能配课、预约打印与配送功能。',
+  role: '独立完成产品设计、前端开发与交互设计，利用 AI 工具辅助需求分析与界面设计。',
+  highlights: '围绕"从搜题到打印一站直达"的核心体验，将分散的资料查找、格式整理、打印预约流程整合为统一入口。智能搜索支持按课程/关键词检索校内公开复习资料；智能配课根据用户院系自动推荐热门资料；预约配送支持自提柜与宿舍楼定点送达。产品以信息架构清晰、操作路径短为设计原则，让用户在考前冲刺阶段能最快拿到所需资料。',
+  ai: true,
+  aiDesc: '利用 AI 辅助进行用户场景分析、信息架构设计与界面原型迭代。'
+},
+{
+  id: 101,
+  category: 'ai',
+  title: '「去掉没用的油」— AI 生成品牌 TVC',
+  desc: '华釜青年奖参赛作品 AI 视频生成，详见策划案板块「华釜青年奖策划案」',
+  image: 'cover_huafu_tvc.jpg',
+  gallery: [
+    'portfolio-previews/huafu_tvc_01.jpg',
+    'portfolio-previews/huafu_tvc_02.jpg',
+    'portfolio-previews/huafu_tvc_03.jpg'
+  ],
+  overview: '以"油"的语义反差为核心创意，用 AI 生成的分镜画面讲述层层反转的品牌故事。',
+  role: '独立完成 AI 视频生成（分镜脚本 → AI 生图 → 视频合成），详见策划案板块。',
+  highlights: 'TVC 采用"有用的油"层层铺垫策略：石油、食用油、鞋油、奶油——每种"油"都有其价值，直到最后落到头发上变成"多余的头油"。通过 AI 生成的电影质感画面，将抽象的语义反差转化为具象的视觉冲击。每个分镜都经过精心设计：阿拉伯石油大亨、黑西装教父、猛火灶厨师、奶油甜点师——每个角色的出场都在强化"有用"，最终反转才显出"没用"。',
+  ai: true,
+  aiDesc: '使用 AI 图像生成工具创作全部 TVC 分镜画面，结合视频剪辑软件完成最终成片。'
+},
+{
+  id: 102,
+  category: 'ai',
+  title: '「测测你的出油率」— 互动测试 H5',
+  desc: '华釜青年奖配套互动 H5 小程序，详见策划案板块「华釜青年奖策划案」',
+  image: 'cover_huafu_h5.png',
+  gallery: [
+    'portfolio-previews/huafu_h5_01.png',
+    'portfolio-previews/huafu_h5_02.png',
+    'portfolio-previews/huafu_h5_03.png',
+    'portfolio-previews/huafu_h5_04.png',
+    'portfolio-previews/huafu_h5_05.png',
+    'portfolio-previews/huafu_h5_06.png'
+  ],
+  overview: '"去掉没用的油"传播活动中的互动转化工具——将品牌传播转化为用户参与。',
+  role: '独立完成 H5 交互设计与前端开发，详见策划案板块。',
+  highlights: 'H5 以"社交出油率测试"为包装形式，将广告观看转化为游戏化体验。用户选择生存地图（校圆线/职场线），回答 3 道情境选择题后获得个性化出油率结果和趣味标签。每道题目都对应一个真实的"油腻"或"清爽"社交场景——从借钱不还到职场甩锅——让用户在会心一笑中记住品牌核心信息"去掉没用的油"。结果页的文案风格延续 TVC 的幽默调性，形成完整的传播闭环。',
+  ai: true,
+  aiDesc: '利用 AI 工具快速将互动创意落地为可运行 H5 页面，实现从概念到产品的快速验证。'
+}
+];
+
+function renderWorks(filter) {
+  const grid = document.getElementById('worksGrid');
+  const filtered = filter === 'all' ? works : works.filter(w => w.category === filter);
+  grid.innerHTML = filtered.map((w,i) => {
+    const isAI = w.category === 'ai' || w.ai;
+    const tagText = { planning:'策划案', video:'视频', graphic:'平面', h5:'H5互动', ai:'AI作品' }[w.category];
+    const glassClass = isAI ? 'glass-pink' : 'glass';
+    const catColor = isAI ? '#F6E8ED' : '#F1EEF7';
+    const catIcon = isAI ? '&#9679;' : '&#9632;';
+    const picHTML = w.image
+      ? `<img src="${w.image}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />`
+      : `<span style="font-size:56px;color:${isAI?'#E0C8D2':'#D9D2E8'};opacity:0.55;">${catIcon}</span>`;
+    return `
+      <div class="work-card ${glassClass}${isAI ? ' ai-card' : ''}" onclick="openModal(${w.id})" style="animation: fadeInUp 0.5s ${i*0.06}s both;">
+        <div class="work-card-image" style="background:${catColor};overflow:hidden;">
+          ${picHTML}
+          <span class="work-card-tag">${tagText}</span>
+        </div>
+        <div class="work-card-body">
+          <span class="work-card-number">${String(i+1).padStart(2,'0')}</span>
+          <h3 class="work-card-title">${w.title}</h3>
+          <p class="work-card-desc">${w.desc}</p>
+          ${isAI ? '<span class="work-card-ai-badge"><span class="ai-dot"></span>AI 作品</span>' : ''}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    renderWorks(this.dataset.category);
+  });
+});
+
+function openModal(id) {
+  const w = works.find(x => x.id === id);
+  if (!w) return;
+  const cat = { planning:'策划案', video:'视频', graphic:'平面', h5:'H5互动', ai:'AI作品' }[w.category];
+  document.getElementById('modalCategory').textContent = cat;
+  document.getElementById('modalTitle').textContent = w.title;
+  document.getElementById('modalOverview').textContent = w.overview;
+  document.getElementById('modalRole').textContent = w.role;
+  document.getElementById('modalHighlights').textContent = w.highlights;
+  const aiSection = document.getElementById('modalAiSection');
+  if (w.ai && w.aiDesc) {
+    aiSection.style.display = 'block';
+    document.getElementById('modalAiDesc').textContent = w.aiDesc;
+  } else {
+    aiSection.style.display = 'none';
+  }
+  const isAI = w.category === 'ai' || w.ai;
+  if (w.image) {
+    document.getElementById('modalImage').innerHTML = `<img src="${w.image}" alt="${w.title}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" />`;
+    document.getElementById('modalImage').style.background = 'transparent';
+  } else {
+    document.getElementById('modalImage').innerHTML = `<span style="font-size:60px;color:${isAI?'#E0C8D2':'#D9D2E8'};opacity:0.45;">${isAI?'&#9679;':'&#9632;'}</span>`;
+    document.getElementById('modalImage').style.background = isAI ? 'linear-gradient(135deg, #FDF5F8, #F4E8EF)' : 'linear-gradient(135deg, #F7F5F3, #EDEAEF)';
+  }
+  // Gallery
+  const galleryEl = document.getElementById('modalGallery');
+  if (w.gallery && w.gallery.length > 0) {
+    galleryEl.style.display = 'grid';
+    galleryEl.innerHTML = w.gallery.map(img => `<img src="${img}" alt="" onclick="event.stopPropagation();openLightbox('${img}')" />`).join('');
+  } else {
+    galleryEl.style.display = 'none';
+    galleryEl.innerHTML = '';
+  }
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modal').scrollTop = 0;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closeModal(); } });
+
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightboxOverlay').classList.remove('active');
+  if (!document.getElementById('modalOverlay').classList.contains('active')) {
+    document.body.style.overflow = '';
+  }
+}
+document.getElementById('lightboxOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// Character-by-character blur-in animation
+function animateChars(el) {
+  const delay = parseInt(el.dataset.delay) || 0;
+  const text = el.textContent.trim();
+  el.textContent = '';
+  el.style.opacity = '1';
+  [...text].forEach((char, i) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = char;
+    el.appendChild(span);
+    setTimeout(() => { span.classList.add('visible'); }, delay + i * 55);
+  });
+}
+
+const charObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateChars(entry.target);
+      charObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('[data-animate-chars]').forEach(el => charObserver.observe(el));
+
+// Scroll reveal
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function checkReveal() {
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * 0.85) el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll', checkReveal);
+checkReveal();
+
+renderWorks('all');
+</script>
+
+</body>
+</html>
